@@ -1,0 +1,13 @@
+<%-include ("../partials/header")  -%>
+<!-- updated syntax in ejs v3.0.1 -->
+
+<div class="ui main text container segment">
+    <div class="ui huge header">New Blog</div>
+    <form class="ui form" action="/articles" method="POST">
+        <%- include('_form_fields') %>
+    </form>
+</div>
+
+
+<%-include ("../partials/footer") -%>
+<!-- updated syntax in ejs v3.0.1 -->

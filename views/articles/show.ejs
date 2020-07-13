@@ -1,0 +1,35 @@
+<%-include ("../partials/header")  -%>
+<!-- updated syntax in ejs v3.0.1 -->
+
+<div class="ui main text container segment">
+    <div class="ui huge header"><%= article.title %></div>
+    <div class="ui top attached">
+        <div class="item">>
+            <div class="content">
+                <span><%= article.created.toLocaleDateString()  %> </span>
+            </div>
+            <div class="description">
+                <p><%= article.description %> </p>
+                <!-- run the things with code  !!Caution!! XSS may happen! please samitise the code! -->
+            </div>
+            <div class="description">
+                <p><%- article.markdown %> </p>
+                <!-- run the things with code  !!Caution!! XSS may happen! please samitise the code! -->
+            </div>
+
+
+            <a class="ui green basic button" href="/articles/edit/<%=article._id%>/edit">EDIT</a>
+            <form id="delete" action="/articles/<%=article._id%>?_method=DELETE " method="POST">
+                <button class="ui red basic button">Delete</button>
+            </form>
+            <a href="/" class="ui purple basic button">All articles</a>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+<%-include ("../partials/footer") -%>
+<!-- updated syntax in ejs v3.0.1 -->

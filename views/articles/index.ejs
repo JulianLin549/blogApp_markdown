@@ -1,0 +1,38 @@
+<%-include ("../partials/header") -%>
+<!-- updated syntax in ejs v3.0.1 -->
+
+<div class="ui main text container">
+    <div class="ui huge header">Blog App</div>
+    <div class="ui top attached segment">
+        <div class="ui divided items"></div>
+        <% articles.forEach((article) =>{ %>
+        <div class="item">
+            <div class="content">
+                <h1 class="header"><%= article.title %></h1>
+                <div class="meta">
+                    <span><%= article.created.toLocaleDateString()  %></span>
+                </div>
+                <div class="description">
+                    <p><%= article.description.substring(0,100)  %>... </p>
+                    <!--only show the first 100 character  -->
+                </div>
+                <div class="ui divider"></div>
+                <div class="extea">
+                    <a href="/articles/<%= article.slug%>" class="ui floated basic mini violet button">
+                        Read More
+                        <i class="right chevron icon"></i>
+                    </a>
+                </div>
+                <div class="ui divider"></div>
+                <div class="extea">
+                    <form id="delete" action="/articles/<%=article.id%>?_method=DELETE " method="POST">
+                        <button type="submit" class="ui positive right labeled icon button">Delete<i
+                                class="trash alternate icon"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <% })  %>
+    </div>
+</div>
+</div>
